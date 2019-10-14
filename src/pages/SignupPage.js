@@ -1,11 +1,14 @@
 import React from 'react'
-import SignupForm from '../components/SignupForm'
-import LoginPathButton from '../components/LoginPathButton'
+import SignupForm from '../forms_buttons/SignupForm'
+import LoginPathButton from '../forms_buttons/LoginPathButton'
 import LineupCreatorTitle from '../components/LineupCreatorTitle'
+import PreAuthNavBar from '../navBars/PreAuthNavBar'
+import {Route} from 'react-router-dom'
 
 const SignupPage = () => {
     return(
         <div>
+              <Route component={PreAuthNavBar} />
             <LineupCreatorTitle />
             <SignupForm />
             <LoginPathButton />
