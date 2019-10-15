@@ -1,13 +1,26 @@
 import React from 'react'
-import LineupCard from '../components/LineupCard'
+import SmallField from '../containers/SmallField'
+import "../styles/HomeLineupContainer.css"
 
 class HomePage extends React.Component {
 
     state={
+        user:null,
         lineupsList:[]
     }
     
     componentDidMount=() => {
+        fetch("http://localhost:3000/profile", {
+            headers: {
+              "Content-Type" : "application/json",
+              "Accept" : "application/json",
+              "Authorization": localStorage.getItem("jwt")
+            }
+          })
+          .then(res => res.json())
+          .then(data => {
+              this.setState({user:data.user})
+          })
         fetch("http://localhost:3000/lineups")
         .then(res=>res.json())
         .then(data=> {
@@ -18,8 +31,8 @@ class HomePage extends React.Component {
     render() {
         return(
             <div id="home-lineup-container">
-                {this.state.lineupsList.map( lineup =>{
-                    return <LineupCard lineup={lineup} key={lineup.id}/>
+                {this.state.lineupsList.reverse().map( lineup =>{
+                    return <SmallField lineup={lineup} user={this.state.user}/>
                 })}
             </div>
         )

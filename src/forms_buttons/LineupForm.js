@@ -20,7 +20,7 @@ class LineupForm extends React.Component {
         playersOnTeam: []
     }
     componentDidMount() {
-        fetch("http://localhost:3000/teams/482")
+        fetch("http://localhost:3000/teams/488")
         .then(res=>res.json())
         .then(data => {
             this.setState({playersOnTeam: data.players})
@@ -69,7 +69,7 @@ class LineupForm extends React.Component {
     dropdownHeader = () => { return <option value="">Player Name (Position)</option> }
 
     dropdownSelects = () => {
-            return (this.state.playersOnTeam.map( player => {
+            return (this.state.playersOnTeam.map( (player) => {
                 return <option value={player.name}> {player.name} ({player.position})</option>
             }))
     }
