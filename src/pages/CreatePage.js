@@ -2,11 +2,11 @@ import React from 'react'
 import PostAuthNavBar from '../navBars/PostAuthNavBar'
 import LineupCreation from '../components/LineupCreation'
 
-const CreatePage = () => {
+const CreatePage = (props) => {
     return(
         <div>
             <PostAuthNavBar />
-            <LineupCreation />
+            <LineupCreation user={props.user} />
         </div>
     )
 }

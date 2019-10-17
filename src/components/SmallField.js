@@ -2,16 +2,11 @@ import React from 'react'
 import '../styles/CreateLineup.css'
 import '../styles/SmallField.css'
 import SmallFieldButtons from '../forms_buttons/SmallFieldButtons'
-import EditLineupModal from '../forms_buttons/EditLineupModal'
 
 
 class SmallField extends React.Component{
-
-findPlayer = (position) => {
-    return this.props.lineup.lineup_players.find(lineupPlayerObj => lineupPlayerObj["position"]==position)["player_name"]
-}
-
-renderCrudButtons= () =>{
+ 
+  renderCrudButtons= () =>{
     if(this.props.user.id && this.props.lineup.user_id == this.props.user.id) {
         return <SmallFieldButtons editLineup={this.editLineup} deleteLineup={this.deleteLineup} lineup_id={this.props.lineup.id}/>
     }
@@ -26,7 +21,6 @@ deleteLineup = (e) => {
 }
 
 editLineup = (e) => {
-    // console.log("toggled!")
         this.props.toggleModal(e, this.props.lineup)
 }
 
@@ -35,59 +29,50 @@ editLineup = (e) => {
             <div data-id={this.props.lineup.id} className="small-show-teams-div">
                 <div className="striker-area">
                   <div className="striker">
-                    {this.findPlayer("striker")}
+                    {this.props.findPlayer("striker")}
                   </div>
                 </div>
                 <div className = "winger-area">
                   <div className = "left-winger">
-                  {this.findPlayer("lw")}
+                  {this.props.findPlayer("lw")}
                     </div>
                   <div className = "right-winger">
-                  {this.findPlayer("rw")}
+                  {this.props.findPlayer("rw")}
                     </div>
                 </div>
                 <div className = "cam-area">
                   <div className = "left-cam">
-                  {this.findPlayer("lcam")}
+                  {this.props.findPlayer("lcam")}
                   </div>
                   <div className = "right-cam">
-                  {this.findPlayer("rcam")}
+                  {this.props.findPlayer("rcam")}
                   </div>
                 </div>
                 <div className = "cdm-area">
                   <div className = "cdm">
-                  {this.findPlayer("cdm")}
+                  {this.props.findPlayer("cdm")}
                     </div>
                 </div>
                 <div className = "def-area">
                   <div className = "left-back">
-                  {this.findPlayer("lb")}
+                  {this.props.findPlayer("lb")}
                   </div>
                   <div className = "left-center-back">
-                  {this.findPlayer("lcb")}
+                  {this.props.findPlayer("lcb")}
                   </div>
                   <div className = "right-center-back">
-                  {this.findPlayer("rcb")}
+                  {this.props.findPlayer("rcb")}
                   </div>
                   <div className = "right-back">
-                  {this.findPlayer("rb")}
+                  {this.props.findPlayer("rb")}
                   </div>
                 </div>
                 <div className="goalkeeper-area">
                   <div className="goalkeeper">
-                  {this.findPlayer("goalkeeper")}
+                  {this.props.findPlayer("goalkeeper")}
                   </div>
                 </div>
                 {this.renderCrudButtons()}
-
-                {/* <div className="team-buttons-div">
-                    <div class="delete-team-button-div">
-                      <button data-id={this.props.lineup.id} class = "ui red button delete-team-button">Delete</button>
-                    </div>
-                    <div class="edit-team-button-div">
-                      <button data-id={this.props.lineup.id} class="ui blue button edit-team-button">Edit</button>
-                    </div>
-                </div> */}
         </div>
     </div>
         )

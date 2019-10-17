@@ -11,5 +11,5 @@ const SmallFieldButtons =(props) => {
                     </div>
             </div> 
         )
-    }
+    } 
 export default SmallFieldButtons

@@ -5,10 +5,11 @@ import LineupCreatorTitle from '../components/LineupCreatorTitle'
 import PreAuthNavBar from '../navBars/PreAuthNavBar'
 import {Route} from 'react-router-dom'
 
-const SignupPage = () => {
+const SignupPage = (props) => {
+    console.log(props.user)
     return(
         <div>
-              <Route component={PreAuthNavBar} />
+            <Route component={PreAuthNavBar} />
             <LineupCreatorTitle />
             <SignupForm />
             <LoginPathButton />
