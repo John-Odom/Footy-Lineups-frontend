@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navigation.css'
+import ProfilePicture from '../containers/ProfilePicture'
 
 export default class Navigation extends React.Component {
   

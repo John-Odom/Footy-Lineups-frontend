@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CreatePage from './pages/CreatePage';
 import ProfilePage from './pages/ProfilePage';
+import UpdateInfoModal from './ProfilePage/UpdateInfoModal'
 import "./App.css"
 import "./styles/Form.css"
 
@@ -59,7 +60,7 @@ componentDidMount = () => {
             </div>
         </BrowserRouter>
       </div>
-    );
+    )
   }
 }
 

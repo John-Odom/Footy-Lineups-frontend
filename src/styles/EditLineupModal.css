@@ -1,4 +1,4 @@
-.modal {
+.edit-lineup-modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -14,8 +14,6 @@
   .modal-content {
     position: absolute;
      top: 30%;
-    /* left: 10%;  */
-    /* transform: translate(-50%, -50%); */
     background-color: white;
     padding: 1rem 1.5rem;
     width: 100%;

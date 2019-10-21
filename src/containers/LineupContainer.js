@@ -2,15 +2,14 @@ import React from 'react'
 import SmallFieldCard from './SmallFieldCard'
 import "../styles/HomeLineupContainer.css"
 
-class HomePageContainer extends React.Component {
-    
+class LineupContainer extends React.Component {
     render() {
         return(
             <div id="home-lineup-container">
                 {this.props.lineupsList.map( lineup =>{
                     return (
                         <div>
-                            <SmallFieldCard user={this.props.user} lineup={lineup} user={this.props.user} />
+                            <SmallFieldCard resetLineups={this.props.resetLineups} user={this.props.user} lineup={lineup} user={this.props.user} />
                         </div>
                     )
                     })}
@@ -18,4 +17,4 @@ class HomePageContainer extends React.Component {
         )
     }
 }
-export default HomePageContainer
+export default LineupContainer
