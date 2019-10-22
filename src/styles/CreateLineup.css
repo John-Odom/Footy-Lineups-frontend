@@ -20,7 +20,7 @@
     justify-content: center;
   }
 
-  .striker {
+  .striker422 {
     font-size: 12px;
     font-weight: bold;
     align-self: flex-end;
@@ -32,13 +32,13 @@
     align-content: center;
     justify-content: center;
   }
-  .left-winger {
+  .lw422 {
     width:50%;
     text-align:left;
     font-size: 12px;
     font-weight: bold;
   }
-  .right-winger {
+  .rw422 {
     width:50%;
     text-align:right;
     font-size: 12px;
@@ -51,13 +51,13 @@
     align-content: center;
     justify-content: center;
   }
-  .left-cam {
+  .lcam422 {
     width:50%;
     text-align:center;
     font-size: 12px;
     font-weight: bold;
   }
-  .right-cam {
+  .rcam422 {
     width:50%;
     text-align:center;
     font-size: 12px;
@@ -70,7 +70,7 @@
     align-content: center;
     justify-content: center;
   }
-  .cdm{
+  .cdm422{
     width: 100%;
     text-align: center;
     font-size: 12px;
@@ -84,28 +84,28 @@
     justify-content: center;
     padding-top: 2%
   }
-  .left-back{
+  .lb{
     width:25%;
     text-align:left;
     font-size: 12px;
     padding-bottom:10%;
     font-weight: bold;
   }
-  .left-center-back{
+  .lcb{
     width:25%;
     text-align:center;
     font-size: 12px;
     padding-top: 4%;
     font-weight: bold;
   }
-  .right-center-back{
+  .rcb{
     width:25%;
     text-align:center;
     font-size: 12px;
     padding-top: 4%;
     font-weight: bold;
   }
-  .right-back{
+  .rb{
     width:25%;
     text-align:right;
     font-size: 12px;

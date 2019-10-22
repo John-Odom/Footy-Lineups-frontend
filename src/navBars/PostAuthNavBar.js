@@ -20,6 +20,7 @@ export default class Navigation extends React.Component {
         <Link to="/home">Home</Link>
         <Link to="/create">Create Lineup</Link>
         <Link to="/profile">Profile</Link>
+        <Link to="/add">Search Users</Link>
         <Link onClick={()=> this.logout()} to="/login">Logout</Link>
       </div>
     );

@@ -9,18 +9,25 @@ class HomePage extends React.Component {
     }
 
     componentDidMount=() => {
-        fetch("http://localhost:3000/lineups")
-        .then(res=>res.json())
-        .then(data=> {
-            this.setState({lineupsList:data.reverse()})
-        })
+        this.resetLineups()
     }
 
     resetLineups = () => {
         fetch("http://localhost:3000/lineups")
         .then(res=>res.json())
         .then(data=> {
-            this.setState({lineupsList:data.reverse()})
+            let viewableArrays=[]
+            
+            data.map(lineup => {
+                if(lineup.user_id == this.props.user.id){
+                    viewableArrays.push(lineup)
+                }else {this.props.currentFollowees.map (followee =>{
+                    if(lineup.user_id== followee.id ){
+                        viewableArrays.push(lineup)
+                    }
+                })
+            }})
+            this.setState({lineupsList:viewableArrays.reverse()})
         })
     }
 

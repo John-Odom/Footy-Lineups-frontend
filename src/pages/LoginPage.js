@@ -6,7 +6,7 @@ import PreAuthNavBar from '../navBars/PreAuthNavBar'
 import {Route} from 'react-router-dom'
 
 
-const SignupPage = () => {
+const LoginPage = () => {
     return(
         <div>
             <Route component={PreAuthNavBar} />
@@ -17,4 +17,4 @@ const SignupPage = () => {
     )
 }
 
-export default SignupPage
+export default LoginPage

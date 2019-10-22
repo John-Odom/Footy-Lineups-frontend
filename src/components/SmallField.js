@@ -25,45 +25,47 @@ class SmallField extends React.Component{
     }
 
     render() {
-        return(<div>
+      // console.log(this.props.lineup.formation)
+        return(
+        <div>
             <div data-id={this.props.lineup.id} className="small-show-teams-div">
                 <div className="striker-area">
-                  <div className="striker">
+                  <div className="striker422">
                     {this.props.striker}
                   </div>
                 </div>
                 <div className = "winger-area">
-                  <div className = "left-winger">
+                  <div className = "lw422">
                   {this.props.lw}
                     </div>
-                  <div className = "right-winger">
+                  <div className = "rw422">
                   {this.props.rw}
                     </div>
                 </div>
                 <div className = "cam-area">
-                  <div className = "left-cam">
+                  <div className = "lcam422">
                   {this.props.lcam}
                   </div>
-                  <div className = "right-cam">
+                  <div className = "rcam422">
                   {this.props.rcam}
                   </div>
                 </div>
                 <div className = "cdm-area">
-                  <div className = "cdm">
+                  <div className = "cdm422">
                   {this.props.cdm}
                     </div>
                 </div>
                 <div className = "def-area">
-                  <div className = "left-back">
+                  <div className = "lb">
                   {this.props.lb}
                   </div>
-                  <div className = "left-center-back">
+                  <div className = "lcb">
                   {this.props.lcb}
                   </div>
-                  <div className = "right-center-back">
+                  <div className = "rcb">
                   {this.props.rcb}
                   </div>
-                  <div className = "right-back">
+                  <div className = "rb">
                   {this.props.rb}
                   </div>
                 </div>

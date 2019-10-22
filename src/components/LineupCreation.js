@@ -2,6 +2,7 @@ import React from 'react'
 import ClubSelectionDropdown from '../forms_buttons/ClubSelectionDropdown'
 import LineupForm from '../forms_buttons/LineupForm'
 import CreateLineupField from '../containers/CreateLineupField'
+import { Redirect } from 'react-router-dom'
 class LineupCreation extends React.Component{
     state = {
         name: "",
@@ -19,7 +20,8 @@ class LineupCreation extends React.Component{
         rw: "",
         playersOnTeam: [],
         clubs:[],
-        selectedClub:null
+        selectedClub:null,
+        redirect: false
     }
 
     componentDidMount() {
@@ -49,7 +51,7 @@ class LineupCreation extends React.Component{
         fetch("http://localhost:3000/lineups", reqObj)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            this.setState({redirect:true})
         })
     }
 
@@ -76,8 +78,8 @@ class LineupCreation extends React.Component{
     }
 
     render() {
-        
         return(
+        this.state.redirect ? <Redirect to="/home" /> :
             <div>
                 <ClubSelectionDropdown updateSelectedClub={this.updateSelectedClub} selectedClub={this.state.selectedClub} clubs={this.state.clubs}/>
                 <LineupForm user={this.props.user} name={this.state.name} updateName={this.updateName} updateFormation={this.updateFormation} formation={this.state.formation} handleSubmit={this.handleSubmit}/>

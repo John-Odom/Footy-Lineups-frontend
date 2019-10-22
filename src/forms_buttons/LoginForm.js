@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
     }).then(res=> res.json())
     .then(data => {
       localStorage.setItem("jwt", data.jwt)
-      this.props.history.push("/profile", data.jwt)
+      this.props.history.push("/home")
     }
       )
   }
