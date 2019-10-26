@@ -2,6 +2,7 @@ import React from 'react'
 import LineupContainer from '../containers/LineupContainer'
 import PostAuthNavBar from '../navBars/PostAuthNavBar'
 import ProfilePicture from '../containers/ProfilePicture'
+import '../styles/HomePage.css'
 
 class HomePage extends React.Component {
     state={
@@ -34,9 +35,9 @@ class HomePage extends React.Component {
     render() {
         if(this.props.user){
         return(
-            <div>
-                <PostAuthNavBar />
-                <ProfilePicture avatar={this.props.user.avatar}/>
+            <div id="home-page">
+                <PostAuthNavBar avatar={this.props.user.avatar}/>
+                <h1>Recent Lineups</h1> 
                 <LineupContainer resetLineups={this.resetLineups} user={this.props.user} lineupsList={this.state.lineupsList}/>
             </div>
         )} else{

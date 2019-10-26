@@ -152,7 +152,7 @@ class SmallFieldCard extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="small-field-card">
                 <SmallFieldDescripts lineup={this.props.lineup}/>
                 <SmallField 
                 toggleModal={this.toggleModal} 
@@ -190,8 +190,7 @@ class SmallFieldCard extends React.Component {
                     striker= {this.state.striker}
                     rw= {this.state.rw}
                 />
-                <FieldComments textContent={this.state.textContent} handleInput={this.handleInput} handleSubmit={this.handleSubmit} comments={this.state.comments} user={this.props.user} lineup={this.props.lineup}/>
-                <SemanticNewLike liked={this.state.liked} likes={this.state.likes} lineup={this.props.lineup} handleLike={this.handleLike} />
+                <FieldComments textContent={this.state.textContent} handleInput={this.handleInput} handleSubmit={this.handleSubmit} comments={this.state.comments} user={this.props.user} lineup={this.props.lineup} liked={this.state.liked} likes={this.state.likes} lineup={this.props.lineup} handleLike={this.handleLike}/>
             </div>
         )
 }}

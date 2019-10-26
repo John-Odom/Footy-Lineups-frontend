@@ -16,20 +16,23 @@ state = {
 }
 
 componentDidMount = () => {
-  fetch("http://localhost:3000/profile", {
-      headers: {
-        "Content-Type" : "application/json",
-        "Accept" : "application/json",
-        "Authorization": localStorage.getItem("jwt")
-      }
-    })
-    .then(res => res.json())
-    .then(data => {
-        this.setState({user:data.user}) 
-        if (this.state.user){
-        this.setState({currentFollowees:data.user.followees})
-    }})
-}
+    fetch("http://localhost:3000/profile", {
+          headers: {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
+            "Authorization": localStorage.getItem("jwt")
+          }
+        })
+        .then(res => res.json())
+        .then(data => {
+            this.setState({user:data.user}) 
+            if (this.state.user){
+            this.setState({currentFollowees:data.user.followees})
+        } 
+      })
+  }
+
+
 
 addToFollowers = (user) => {
   this.setState({currentFollowees: [...this.state.currentFollowees, user]})
@@ -69,6 +72,9 @@ unFollow = (followee) => {
   })
 }
 
+handleLogout = () =>{
+  this.setState({user:null})
+}
 
 
   render() {
@@ -83,7 +89,7 @@ unFollow = (followee) => {
                 />
                 <Route 
                 exact path="/login" 
-                component={LoginPage} 
+                render={(props) => <LoginPage{...props} authorize={this.authorize} handleLogout={this.handleLogout} />} 
                 />
                 <Route
                 exact path="/profile/"

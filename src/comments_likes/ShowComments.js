@@ -2,12 +2,12 @@ import React from 'react'
 
 const FieldComments =(props) => {
     return(
-        <div>
+        <div className="comments">
             {props.comments.map(comment => {
                 return comment.user ?  
-                <p>{comment.user.username} => {comment.content}</p> : 
-                <p>{props.user.username} => {comment}</p>
-            })}        
+                <div>{comment.user.username} => {comment.content}</div> : 
+                <div>{props.user.username} => {comment}</div>
+            })}
         </div>
     )
 }

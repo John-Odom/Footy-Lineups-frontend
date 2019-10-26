@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
+import ClubSelectionDropdown from './ClubSelectionDropdown';
 
 class SignupForm extends React.Component {
   constructor(props){
@@ -9,8 +10,17 @@ class SignupForm extends React.Component {
       password: "",
       bio: "",
       avatar: "",
-      team: ""
+      team: "",
+      teamsList: []
     }
+  }
+
+  componentDidMount () {
+    fetch("http://localhost:3000/teams")
+    .then(res=>res.json())
+    .then(data => {
+      this.setState({teamsList:data})
+  })
   }
 
   handleSubmit = (e) => {
@@ -28,7 +38,8 @@ class SignupForm extends React.Component {
     }).then(res=> res.json())
     .then(data => {
       localStorage.setItem("jwt", data.jwt)
-      this.props.history.push("/profile", data.jwt)
+      this.props.history.push("/create", data.jwt)
+      document.location.reload()
     }
       )
   }
@@ -39,16 +50,24 @@ class SignupForm extends React.Component {
     })
   }
 
+  updateSelectedClub = (e) => {
+    this.setState({team: this.state.teamsList.find(team=>{
+      return team.club_name===e.target.value
+    })
+      })
+  }
+
   render() {
   return (
     <div className="App">
-      <form onSubmit={this.handleSubmit}>
+      <form id="signup-form" onSubmit={this.handleSubmit}>
         Username:<input type="text"  onChange={this.handleChange} name="username" value={this.state.username}/><br />
         Password: <input type="text"  onChange={this.handleChange} name="password" value={this.state.password}/><br />
         Bio: <input type="text"  onChange={this.handleChange} name="bio" value={this.state.bio}/><br />
-        Avatar: <input type="text"  onChange={this.handleChange} name="avatar" value={this.state.avatar}/><br />
-        Team: <input type="text"  onChange={this.handleChange} name="team" value={this.state.team}/><br />
-        <input type="submit" />
+        Profile Picture: <input type="text"  onChange={this.handleChange} name="avatar" value={this.state.avatar}/><br />
+        {/* Team: <input type="text"  onChange={this.handleChange} name="team" value={this.state.team}/><br /> */}
+        <ClubSelectionDropdown innerText="Your Favorite" clubs={this.state.teamsList} updateSelectedClub={this.updateSelectedClub}/>
+        <input id="signup-submit" type="submit" />
       </form>
     </div>
   );

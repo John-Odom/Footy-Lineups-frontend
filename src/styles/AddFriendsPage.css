@@ -1,0 +1,92 @@
+#add-friends-page {
+    display: inline-block; 
+    margin: 0 auto;
+    padding: 3px;
+    background-color: #32936F;
+    width: 70%;
+    min-height: 100vh;
+}
+
+#friends-page-container{
+        display: flex;
+}
+
+#add-user-container{
+    height: 50vh;
+    width:50%;
+    margin: 2vh 0;
+    overflow: inherit;
+}
+
+#search-follow {
+    width:60%;
+    border-style: solid;
+    border-width: thick;
+    border-radius: 10px; 
+    background-color: pink;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#user-container {
+    width: 100%;
+    height:90%;
+    background-color: pink;
+    overflow: auto;
+    display: inline-block;
+}
+
+.follow-user-bar{
+    width: 100%;
+    text-align: center;
+    border-top: black dotted;
+    padding: 1vh;
+    display:flex;
+    flex-direction: wrap;
+}
+
+#followers-and-followees{
+    width: 50%;
+    height: 100vh;
+}
+
+#followers-container {
+    /* background-color: aqua; */
+    width: 100%;
+    height: 24%;
+}
+#followers {
+    background-color: pink;
+    width: 50%;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: thick;
+    height: 100%;
+    overflow: auto;
+    padding: 1vh 2vh;
+    margin: 2vh 3vh;
+}
+#followees-container {
+    /* background-color: salmon; */
+    width: 100%;
+    height: 24%;
+}
+#followees {
+    background-color: pink;
+    border-style: solid;
+    border-width: thick;
+    border-radius: 10px;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+    padding: 1vh 2vh;
+    margin: 2vh 3vh;
+}
+
+#user-name{
+    width:50%;
+    vertical-align: middle;
+}
+#follow-button{
+    width:50%;
+}

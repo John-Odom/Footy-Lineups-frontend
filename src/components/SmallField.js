@@ -31,47 +31,47 @@ class SmallField extends React.Component{
             <div data-id={this.props.lineup.id} className="small-show-teams-div">
                 <div className="striker-area">
                   <div className="striker422">
-                    {this.props.striker}
+                    <div class="position-text">{this.props.striker}</div>
                   </div>
                 </div>
                 <div className = "winger-area">
                   <div className = "lw422">
-                  {this.props.lw}
+                  <span class="position-text">{this.props.lw}</span>
                     </div>
                   <div className = "rw422">
-                  {this.props.rw}
+                  <span class="position-text">{this.props.rw}</span>
                     </div>
                 </div>
                 <div className = "cam-area">
                   <div className = "lcam422">
-                  {this.props.lcam}
+                  <span class="position-text">{this.props.lcam}</span>
                   </div>
                   <div className = "rcam422">
-                  {this.props.rcam}
+                  <span class="position-text">{this.props.rcam}</span>
                   </div>
                 </div>
                 <div className = "cdm-area">
                   <div className = "cdm422">
-                  {this.props.cdm}
+                  <span class="position-text">{this.props.cdm}</span>
                     </div>
                 </div>
                 <div className = "def-area">
                   <div className = "lb">
-                  {this.props.lb}
+                  <span class="position-text">{this.props.lb}</span>
                   </div>
                   <div className = "lcb">
-                  {this.props.lcb}
+                  <span class="position-text">{this.props.lcb}</span>
                   </div>
                   <div className = "rcb">
-                  {this.props.rcb}
+                  <span class="position-text">{this.props.rcb}</span>
                   </div>
                   <div className = "rb">
-                  {this.props.rb}
+                  <span class="position-text">{this.props.rb}</span>
                   </div>
                 </div>
                 <div className="goalkeeper-area">
                   <div className="goalkeeper">
-                  {this.props.goalkeeper}
+                  <span class="position-text">{this.props.goalkeeper}</span>
                   </div>
                 </div>
                 {this.renderCrudButtons()}

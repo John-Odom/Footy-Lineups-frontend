@@ -1,4 +1,48 @@
-.navigation {
+#navigation {
     display: flex;
     justify-content: space-around;
+    height:12vh;
+    background-color: #034748;
+    /* padding: 1vh; */
+  }
+
+#nav-bar-links {
+  display: flex;
+  justify-content: space-around;
+  width:80%;
+  height:100%;
+  /* background-color: purple; */
+  padding: 4vh 0vh;
+}
+
+.nav-bar-link {
+    /* border-style: solid; */
+    background-color: pink;
+    width: 6vw;
+    height: 4vh;
+    padding: 1vh;
+    color:black;
+    border-radius: 10px;
+    vertical-align: middle;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .link{
+    display: inline-block;
+    
+    line-height: normal;
+  }
+
+  #profile-picture-container {
+    width:20%;
+    height:100%;
+    padding: 1vh;
+  }
+
+  #profile-picture{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-style: solid;
+    border-radius: 100px;
   }

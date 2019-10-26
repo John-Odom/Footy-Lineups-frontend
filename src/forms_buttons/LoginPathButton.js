@@ -4,8 +4,8 @@ import {Link } from 'react-router-dom'
 const LoginPathButton = () => {
     return(
         <div>
-            <h3>Already have an account?</h3>
-            <Link to="/login">Login</Link>
+            <em>Already have an account? <Link to="/login">Login</Link></em>
+            
         </div>
     )
 }

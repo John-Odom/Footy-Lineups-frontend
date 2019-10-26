@@ -51,12 +51,14 @@ class ProfileInformation extends React.Component {
    
     render(){
         return(
-            <div>
+            <div id="profile-info-row">
+                < div id="profile-info">
                 <InformationContainer user={this.props.user} />
                 <UpdateInfoModal username={this.state.username}
                 bio={this.state.bio} teamsList={this.state.teamsList}
                 team={this.state.team} avatar={this.state.avatar} 
                 handleChange={this.handleChange} handleSubmit={this.handleSubmit} user={this.props.user} />
+                </div>            
             </div>
         )
         

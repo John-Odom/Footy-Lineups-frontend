@@ -2,7 +2,6 @@ import React from 'react'
 import PostAuthNavBar from '../navBars/PostAuthNavBar'
 import LineupContainer from '../containers/LineupContainer'
 import ProfileInformation from '../ProfilePage/ProfileInformation'
-import ProfilePicture from '../containers/ProfilePicture'
 import BackgroundImage from '../ProfilePage/BackgroundImage'
 import '../styles/ProfilePage.css'
 
@@ -35,11 +34,11 @@ class ProfilePage extends React.Component{
         if(this.props.user){
         return (
             <div>
-                <div >
-                    <BackgroundImage user={this.props.user}/>
-                    <PostAuthNavBar />
-                    <ProfilePicture  avatar={this.props.user.avatar}/>
+                <div id="profile-page">
+                    <PostAuthNavBar avatar={this.props.user.avatar}/>
+                    {/* <ProfilePicture  avatar={this.props.user.avatar}/> */}
                     <ProfileInformation user={this.props.user} />
+                    <h2> Your Lineups </h2>
                     <LineupContainer user={this.props.user} resetLineups={this.resetLineups} lineupsList={this.state.lineupsList} />
                 </div>
             </div>

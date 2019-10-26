@@ -1,6 +1,6 @@
 import React from 'react'
 import FilterUsers from './FilterUsers'
-import AddUserContainer from './UserContainer'
+import AddUserContainer from './AddUserContainer'
 import FolloweesContainer from './FolloweesContainer'
 import FollowersContainer from './FollowersContainer'
 import { Search } from 'semantic-ui-react'
@@ -47,17 +47,22 @@ class RenderUsers extends React.Component {
 
     render(){
         return(
-            <div>
-                {/* <FilterUsers usersList={this.state.usersList} filterUsers={this.filterUsers} inputValue={this.state.inputValue}/> */}
-                <Search onSearchChange={(e)=>this.getSearchValue(e.target.value)} showNoResults={false} value={this.state.search} className="searchbar"/>
-                <AddUserContainer 
-                currentFollowees={this.props.currentFollowees} 
-                addToFollowers={this.props.addToFollowers}
-                unFollow={this.props.unFollow} 
-                usersList={this.callList()}
-                />
+            <div id="friends-page-container">
+                <div id="add-user-container">
+                    <div id="search-follow">
+                    <Search onSearchChange={(e)=>this.getSearchValue(e.target.value)} showNoResults={false} value={this.state.search} className="searchbar"/>
+                    <AddUserContainer 
+                    currentFollowees={this.props.currentFollowees} 
+                    addToFollowers={this.props.addToFollowers}
+                    unFollow={this.props.unFollow} 
+                    usersList={this.callList()}
+                    />
+                    </div>
+                </div>
+                <div id="followers-and-followees">
                 <FollowersContainer currentFollowers={this.state.currentFollowers}/>
                 <FolloweesContainer currentFollowees={this.props.currentFollowees}/>
+                </div>
             </div>
         )
     }

@@ -3,7 +3,7 @@ import UserBar from './UserBar'
 
 const UserContainer =(props) => {
     return(
-        <div>
+        <div id="user-container">
             {props.usersList.map(user=>{
                 return(<UserBar user={user} 
                     addToFollowers={props.addToFollowers}

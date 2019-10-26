@@ -6,9 +6,8 @@ import ProfilePicture from '../containers/ProfilePicture'
 const CreatePage = (props) => {
     if(props.user){
     return(
-        <div>
-            <PostAuthNavBar />
-            <ProfilePicture avatar={props.user.avatar}/>
+        <div id="create-page">
+            <PostAuthNavBar avatar={props.user.avatar}/>
             <LineupCreation user={props.user} />
         </div>
     )} else{

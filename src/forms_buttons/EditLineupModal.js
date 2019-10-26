@@ -14,8 +14,9 @@ class EditLineupModal extends React.Component {
                         <form id="edit-team-form" className="ui equal width form">
                           <div className="fields">
                             <div className="field">
-                              <label>Team Name</label>
-                              {/* <input placeholder="Team Name" type="text" value=""> */}
+                              <label>Lineup Name: {this.props.lineup.name}</label>
+                              <label>Club: {this.props.lineup.team.club_name}</label>
+                              <label>User: {this.props.lineup.user.username}</label>
                             </div>
                             <div className="field">
                               <label>Goalkeeper</label>

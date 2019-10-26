@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class LoginForm extends React.Component {
   constructor(props){
@@ -7,6 +8,7 @@ class LoginForm extends React.Component {
     this.state={
       username: "",
       password: "",
+      redirect: false
     }
   }
 
@@ -21,11 +23,14 @@ class LoginForm extends React.Component {
       body: JSON.stringify({      
         user: this.state
       })
-
-    }).then(res=> res.json())
+    })
+    .then(res=> res.json())
     .then(data => {
+      console.log(data)
+      this.props.handleLogout()
       localStorage.setItem("jwt", data.jwt)
-      this.props.history.push("/home")
+      this.setState({redirect:true})
+      document.location.reload()
     }
       )
   }
@@ -38,11 +43,14 @@ class LoginForm extends React.Component {
 
   render() {
   return (
+    this.state.redirect ? <Redirect to="/home" /> :
     <div className="App">
-      <form onSubmit={this.handleSubmit}>
-        username: <input type="text"  onChange={this.handleChange} name="username" value={this.state.username}/>
-        password: <input type="text"  onChange={this.handleChange} name="password" value={this.state.password}/>
-        <input type="submit" />
+      <form id="login-form" onSubmit={this.handleSubmit}>
+        <label>Username:</label>
+        <input type="text"  onChange={this.handleChange} name="username" value={this.state.username}/>
+        <label>Password:</label>
+        <input type="text"  onChange={this.handleChange} name="password" value={this.state.password}/>
+        <input id="login-submit" type="submit" />
       </form>
     </div>
   );

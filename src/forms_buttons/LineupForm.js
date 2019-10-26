@@ -1,22 +1,18 @@
 import React from 'react'
 import '../styles/CreateLineup.css'
+import ClubSelectionDropdown from '../forms_buttons/ClubSelectionDropdown'
 
 class LineupForm extends React.Component {
 
     render() {
         return(
-            <div id="create-team-component">
-                <form>
-                    Team Name:<br />
-                    <input type="text" name="teamName" value={this.props.name} onChange={this.props.updateName}/><br />
-                    <select value={this.props.formation} onChange={this.props.updateFormation}>
-                        <option value="4-5-1">4-5-1</option>
-                        <option value="4-4-2">4-4-2</option>
-                        <option value="4-3-3">4-3-3</option>
-                        <option value="3-5-2">3-5-2</option>
-                    </select>
-                    <input type="submit" onClick={this.props.handleSubmit}/>
-                </form>
+            <div id="create-team-form">
+                    <div id="post-team-name">
+                        <label>Team Name:</label>
+                        <input type="text" name="teamName" value={this.props.name} onChange={this.props.updateName}/><br />
+                    </div>
+                    <ClubSelectionDropdown innerText="a" updateSelectedClub={this.props.updateSelectedClub} selectedClub={this.props.selectedClub} clubs={this.props.clubs}/>
+                    <div id="post-lineup-div"><button type="submit" className="ui blue button" onClick={this.props.handleSubmit}> Post Lineup</button></div>
             </div>
         )
 }}

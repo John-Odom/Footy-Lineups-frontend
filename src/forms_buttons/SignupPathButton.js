@@ -4,8 +4,7 @@ import {Link } from 'react-router-dom'
 const LoginPage = () => {
     return(
         <div>
-            <h3>Don't have an account?</h3>
-            <Link to="/signup">Signup</Link>
+            <em>Don't have an account? <Link to="/signup"> Signup</Link> </em>
         </div>
     )
 }

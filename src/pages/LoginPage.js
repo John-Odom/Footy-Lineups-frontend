@@ -1,20 +1,27 @@
 import React from 'react'
 import LoginForm from '../forms_buttons/LoginForm'
-import LoginPathButton from '../forms_buttons/SignupPathButton'
-import LineupCreatorTitle from '../components/LineupCreatorTitle'
+import SignupPathButton from '../forms_buttons/SignupPathButton'
+import Logo from '../containers/Logo'
 import PreAuthNavBar from '../navBars/PreAuthNavBar'
 import {Route} from 'react-router-dom'
+import '../styles/LoginPage.css'
 
+class LoginPage extends React.Component {
 
-const LoginPage = () => {
-    return(
-        <div>
-            <Route component={PreAuthNavBar} />
-            <LineupCreatorTitle />
-            <LoginForm />
-            <LoginPathButton />
-        </div>
-    )
+    componentDidMount=()=>{
+        this.props.handleLogout()
+    }
+    render(){
+        return(
+            <div id="login-page">
+                <div id="login-area">
+                <Logo />
+                <LoginForm handleLogout={this.props.handleLogout}/>
+                <SignupPathButton />
+                </div>
+            </div>
+        )
+    }
 }
 
 export default LoginPage

@@ -1,0 +1,36 @@
+#signup-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 3px;
+    background-color: #32936F;
+    width: 70%;
+    height: 100vh;
+    position: relative;
+}
+
+#signup-area{
+    
+    background-color: pink;
+    width: 50%;
+    display: inline-block; 
+    margin: 0 auto;
+    padding: 7vh 5vh;
+}
+
+#signup-form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#signup-submit{
+    width: 5vw;
+    text-align: center;
+}
+#signup-indicator{
+    text-align: left;
+    font-size: 20px;
+}

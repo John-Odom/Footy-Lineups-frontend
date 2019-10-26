@@ -3,8 +3,9 @@ import { Button } from 'semantic-ui-react'
 
 const SemanticLikeCard = (props) => {
   return (
-  <div>
+  <div className="like-button-container">
     <Button
+      className="like-button"
       onClick={()=>props.handleLike()}
       color={props.liked ? 'red' : "blue"}
       content={props.liked ? 'Liked' : "Like"}
