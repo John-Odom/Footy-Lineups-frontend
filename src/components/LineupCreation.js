@@ -10,6 +10,7 @@ import { updatePlayersOnTeam } from '../actions/updatePlayersOnTeam'
 
 
 class LineupCreation extends React.Component{
+
     constructor (props){
         super(props)
         this.state = {
@@ -73,7 +74,7 @@ class LineupCreation extends React.Component{
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.state)
         return(
         this.state.redirect ? <Redirect to="/home" /> :
             <div>
