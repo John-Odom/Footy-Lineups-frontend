@@ -8,9 +8,6 @@ import '../styles/LoginPage.css'
 
 class LoginPage extends React.Component {
 
-    componentDidMount=()=>{
-        this.props.handleLogout()
-    }
     render(){
         return(
             <div id="login-page">

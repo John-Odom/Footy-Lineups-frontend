@@ -74,7 +74,6 @@ class LineupCreation extends React.Component{
     }
 
     render() {
-        console.log(this.state)
         return(
         this.state.redirect ? <Redirect to="/home" /> :
             <div>

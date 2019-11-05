@@ -95,6 +95,10 @@ componentDidMount = () => {
           exact path="/add" 
           render={(props) => <AddFriendsPage{...props} user={this.state.user} currentFollowees={this.state.currentFollowees} addToFollowers={this.addToFollowers} unFollow = {this.unFollow}/>} 
           />
+          <Route 
+          exact path="/login" 
+          render={(props) => <LoginPage{...props} authorize={this.authorize} handleLogout={this.handleLogout} />} 
+          />
 
           <Redirect to='/home' />
         </Switch>
