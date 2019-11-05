@@ -2,39 +2,29 @@ import React from 'react'
 import LineupForm from '../forms_buttons/LineupForm'
 import CreateLineupField from '../containers/CreateLineupField'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { storeTeams } from '../actions'
+import { selectedClub } from '../actions'
+import { updatePlayersOnTeam } from '../actions/updatePlayersOnTeam'
+
+
+
 class LineupCreation extends React.Component{
-    state = {
-        name: "",
-        formation: "4-5-1",
-        goalkeeper: "",
-        lb: "",
-        lcb: "",
-        rcb: "",
-        rb: "",
-        cdm: "",
-        lcam: "",
-        rcam: "",
-        lw: "",
-        striker: "",
-        rw: "",
-        playersOnTeam: [],
-        clubs:[],
-        selectedClub:null,
-        redirect: false,
+    constructor (props){
+        super(props)
+        this.state = {
+            playersInLineup: {},
+            redirect: false,
+        }
     }
 
     componentDidMount() {
         fetch("http://localhost:3000/teams")
         .then(res=>res.json())
-        .then(data => {
-            this.setState({clubs:data, selectedClub:data[0]})
+        .then(teams => {
+            this.props.storeTeams(teams)
+            this.props.selectedClub(teams[0])
         })
-    }
-    updateName = (e) => {
-        this.setState({name: e.target.value})
-    }
-    updateFormation = (e) => {
-        this.setState({formation: e.target.value})
     }
 
     handleSubmit = (e) => {
@@ -43,67 +33,78 @@ class LineupCreation extends React.Component{
             method:"POST",
             headers:{"Content-Type": "application/json", "Accept":"application/json"},
             body:JSON.stringify({
-                data:this.state,
-                user:this.props.user
+                name:this.props.name,
+                formation:"4-5-1",
+                team:this.props.club,
+                playersInLineup: this.state.playersInLineup,
+                user:this.props.user,
             })
         }
         fetch("http://localhost:3000/lineups", reqObj)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
             this.setState({redirect:true})
         })
     }
 
 
     updatePlayer = (e, position) => {
-        console.log(e.target.innerText)
         if(e.target.innerText){
-            this.setState({[position]: (this.state.playersOnTeam.filter( player => {
-            return (e.target.innerText==player.name)
-        }))})} else {
-            console.log(e.target.parentNode.children[1].innerText)
-            this.setState({[position]: (this.state.playersOnTeam.filter( player => {
-                return (e.target.parentNode.children[1].innerText==player.name)
-            }))})
+            this.setState({
+                playersInLineup: {...this.state.playersInLineup, [position]: (this.props.players.find( player => {
+                    return (e.target.innerText==player.name)
+                }))}
+            })
+        } else {
+            this.setState({
+                playersInLineup: {...this.state.playersInLineup, [position]: (this.props.players.find( player => {
+                    return (e.target.parentNode.children[1].textContent==player.name)
+                }))}
+            })
         }
     }
 
-    dropdownHeader = () => { return <option value="">Player Name (Position)</option> }
-
-    dropdownSelects = () => {
-            return (this.state.playersOnTeam.map( (player) => {
-                return <option value={player.name}> {player.name} ({player.position})</option>
-            }))
-    }
-
-    updateSelectedClub = (e) => {
-        const chosenClub = this.state.clubs.find( club => {
+    updateSelClub = (e) => {
+        const chosenClub = this.props.clubs.find( club => {
                         return e.target.value === club["club_name"]
                         })
-        this.setState({selectedClub:chosenClub, playersOnTeam:chosenClub.players})
+        this.props.updatePlayersOnTeam(chosenClub.players)
+        this.props.selectedClub(chosenClub)
     }
 
     render() {
+        console.log(this.props)
         return(
         this.state.redirect ? <Redirect to="/home" /> :
             <div>
-                <LineupForm user={this.props.user} name={this.state.name} updateName={this.updateName} updateFormation={this.updateFormation} formation={this.state.formation} handleSubmit={this.handleSubmit} updateSelectedClub={this.updateSelectedClub} selectedClub={this.state.selectedClub} clubs={this.state.clubs} />
-                <CreateLineupField updatePlayer={this.updatePlayer} dropdownHeader={this.dropdownHeader} 
-                goalkeeper={this.state.goalkeeper}
-                lb={this.state.lb}
-                lcb={this.state.lcb}
-                rcb={this.state.rcb}
-                rb={this.state.rb}
-                cdm={this.state.cdm}
-                lcam={this.state.lcam}
-                rcam={this.state.rcam}
-                lw={this.state.lw}
-                striker={this.state.striker}
-                rw={this.state.rw}
-                dropdownSelects={this.dropdownSelects} playersOnTeam={this.state.playersOnTeam} key={this.props.user.id}/>
+                <LineupForm user={this.props.user} handleSubmit={this.handleSubmit} updateSelClub={this.updateSelClub} />
+                <CreateLineupField updatePlayer={this.updatePlayer} key={this.props.user.id}/>
             </div>
         )
     }   
 }
-export default LineupCreation
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      storeTeams: (teams) =>{
+        dispatch(storeTeams(teams))
+      },
+      selectedClub: (team) =>{
+        dispatch(selectedClub(team))
+      },
+      updatePlayersOnTeam: (players) =>{
+        dispatch(updatePlayersOnTeam(players))
+      }
+    }
+  } 
+
+  const mapStateToProps = (state) => {
+    return {
+      clubs: state.clubs,
+      club: state.club,
+      name: state.name,
+      players: state.players
+    }
+  } 
+
+export default connect(mapStateToProps, mapDispatchToProps)(LineupCreation)

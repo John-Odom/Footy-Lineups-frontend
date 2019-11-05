@@ -6,7 +6,6 @@ import Logo from '../containers/Logo'
 import '../styles/SignupPage.css'
 
 const SignupPage = (props) => {
-    console.log(props.user)
     return(
         <div id="signup-page">
             <div id="signup-area">

@@ -1,0 +1,4 @@
+export const STORE_TEAMS = "STORE_TEAMS"
+export const SELECTED_CLUB = "SELECTED_CLUB"
+export const SET_NAME = "SET_NAME"
+export const UPDATE_PLAYERS_ON_TEAM = "UPDATE_PLAYERS_ON_TEAM"

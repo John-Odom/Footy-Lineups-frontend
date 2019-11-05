@@ -52,9 +52,9 @@ addToFollowers = (user) => {
       console.log(data)
   })
 }
+
 unFollow = (followee) => {
   this.setState({currentFollowees: [...this.state.currentFollowees.filter(oldFollowee =>{
-      // console.log(follow, followee)
      return oldFollowee.id !== followee.id
   })]})
   fetch("http://localhost:3000/follows")
@@ -63,7 +63,6 @@ unFollow = (followee) => {
       const follow = data.find(obj =>{
           return(obj.follower.id ===this.state.user.id && obj.followee.id === followee.id)
       })
-      // console.log(follow.id)
       fetch(`http://localhost:3000/follows/${follow.id}`, {method:"DELETE"})
       .then(res => res.json())
       .then(data=>{
@@ -115,6 +114,8 @@ handleLogout = () =>{
     )
   }
 }
+
+
 
 
 export default App;

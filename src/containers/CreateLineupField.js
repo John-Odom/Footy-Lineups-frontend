@@ -9,26 +9,15 @@ const CreateLineupField = (props) =>{
                     <div className="striker-area">
                       <div className="striker-select"> 
                             <TestPageForDropdownSelect  
-                            goalkeeper={props.goalkeeper}
-                            lb={props.lb}
-                            lcb={props.lcb}
-                            rcb={props.rcb}
-                            rb={props.rb}
-                            cdm={props.cdm}
-                            lcam={props.lcam}
-                            rcam={props.rcam}
-                            lw={props.lw}
-                            striker={props.striker}
-                            rw={props.rw}
-                            name="striker" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            name="striker" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                     </div>
                     </div>
                     <div className = "winger-area">
                       <div className = "lw-select"> 
-                            <TestPageForDropdownSelect name="lw" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="lw" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                         </div>
                       <div className = "rw-select">
-                            <TestPageForDropdownSelect name="rw" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="rw" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                         </div>
                     </div>
                     <div className = "cam-area">
@@ -37,14 +26,14 @@ const CreateLineupField = (props) =>{
                             {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="lcam" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="lcam" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                       </div>
                       <div className = "rcam-select">
                             {/* <select name="rcam" onChange={(e) => props.updatePlayer(e)}>
                             {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="rcam" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="rcam" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                       </div>
                     </div>
                     <div className = "cdm-area">
@@ -53,7 +42,7 @@ const CreateLineupField = (props) =>{
                                 {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="cdm" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="cdm" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                         </div>
                     </div>
                     <div className = "def-area">
@@ -62,28 +51,28 @@ const CreateLineupField = (props) =>{
                                 {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="lb" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="lb"  updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                       </div>
                       <div className = "lcb-select">
                             {/* <select name="lcb" onChange={(e) => props.updatePlayer(e)}>
                                 {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="lcb" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="lcb" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                       </div>
                       <div className = "rcb-select">
                             {/* <select name="rcb" onChange={(e) => props.updatePlayer(e)}>
                                 {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="rcb" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="rcb" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                       </div>
                       <div className = "rb-select">
                             {/* <select name="rb" onChange={(e) => props.updatePlayer(e)}>
                                 {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="rb" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="rb" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                       </div>
                     </div>
                     <div className="goalkeeper-area">
@@ -92,7 +81,7 @@ const CreateLineupField = (props) =>{
                                 {props.dropdownHeader()}
                                 {props.dropdownSelects()}
                             </select> */}
-                            <TestPageForDropdownSelect name="goalkeeper" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam} dropdownHeader={props.dropdownHeader} dropdownSelects={props.dropdownSelects}/>
+                            <TestPageForDropdownSelect name="goalkeeper" updatePlayer={props.updatePlayer} playersOnTeam={props.playersOnTeam}/>
                       </div>
                     </div>
                 </div>

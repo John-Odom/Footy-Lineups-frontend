@@ -1,5 +1,6 @@
 import React from 'react'
 import { Dropdown, Portal } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 
 
@@ -10,10 +11,9 @@ class DropdownExampleSearchSelection extends React.Component {
     }
     portal (){
         let playersWithText = []
-        this.props.playersOnTeam.filter (player =>{
+        this.props.players.filter (player =>{
             player.text = player.name
             player.value = player.name
-            // return !this.props.playersOnTeam.includes(this.props.striker).push(player)
             return playersWithText.push(player)
         })
         return playersWithText
@@ -35,4 +35,10 @@ class DropdownExampleSearchSelection extends React.Component {
     }
 }
 
-export default DropdownExampleSearchSelection
+const mapStateToProps = (state) => {
+    return {
+      players: state.players
+    }
+  } 
+
+export default connect(mapStateToProps, null)(DropdownExampleSearchSelection)
