@@ -20,13 +20,15 @@ class DropdownExampleSearchSelection extends React.Component {
     }
 
     render() {
+      const value = this.props.player ? this.props.player.name : null
         return (
             <div>
             <print>{this.props.name}:</print><br/>
             <Dropdown
+              value={value}
               placeholder='Select Player'
               onChange = {(e) => this.props.updatePlayer(e, this.props.name)}
-            //   fluid
+              // fluid
               search
               selection
               options={this.portal()}
