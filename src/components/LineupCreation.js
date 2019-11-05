@@ -50,19 +50,17 @@ class LineupCreation extends React.Component{
 
 
     updatePlayer = (e, position) => {
-        if(e.target.innerText){
-            this.setState({
-                playersInLineup: {...this.state.playersInLineup, [position]: (this.props.players.find( player => {
-                    return (e.target.innerText==player.name)
-                }))}
-            })
-        } else {
-            this.setState({
-                playersInLineup: {...this.state.playersInLineup, [position]: (this.props.players.find( player => {
-                    return (e.target.parentNode.children[1].textContent==player.name)
-                }))}
-            })
-        }
+      // copies object instead of altering state directly
+      const players = Object.assign({}, this.state.playersInLineup);
+      const name = e.target.innerText || e.target.parentNode.children[1].textContent
+
+      for(let key in players) {
+        if( players[key] && players[key].name === name )
+          players[key] = null
+      }
+      
+      players[position] = this.props.players.find(p => p.name === name)
+      this.setState({ playersInLineup: players })
     }
 
     updateSelClub = (e) => {
@@ -78,7 +76,7 @@ class LineupCreation extends React.Component{
         this.state.redirect ? <Redirect to="/home" /> :
             <div>
                 <LineupForm user={this.props.user} handleSubmit={this.handleSubmit} updateSelClub={this.updateSelClub} />
-                <CreateLineupField updatePlayer={this.updatePlayer} key={this.props.user.id}/>
+                <CreateLineupField playersInLineup={this.state.playersInLineup} updatePlayer={this.updatePlayer} key={this.props.user.id}/>
             </div>
         )
     }   
