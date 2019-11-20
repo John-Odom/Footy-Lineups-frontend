@@ -30,7 +30,6 @@ class ProfileInformation extends React.Component {
         this.setState({[e.target.name]:e.target.value})
     }
     handleSubmit = () => {
-        console.log("submitted")
         const reqObj = {
             method:"PATCH",
             headers:{"Content-Type":"application/json"},
@@ -57,7 +56,8 @@ class ProfileInformation extends React.Component {
                 <UpdateInfoModal username={this.state.username}
                 bio={this.state.bio} teamsList={this.state.teamsList}
                 team={this.state.team} avatar={this.state.avatar} 
-                handleChange={this.handleChange} handleSubmit={this.handleSubmit} user={this.props.user} />
+                handleChange={this.handleChange} handleSubmit={this.handleSubmit} user={this.props.user} 
+                />
                 </div>            
             </div>
         )

@@ -18,7 +18,7 @@ class HomePage extends React.Component {
         .then(res=>res.json())
         .then(data=> {
             let viewableArrays=[]
-            
+            if(this.props.user){
             data.map(lineup => {
                 if(lineup.user_id == this.props.user.id){
                     viewableArrays.push(lineup)
@@ -27,7 +27,7 @@ class HomePage extends React.Component {
                         viewableArrays.push(lineup)
                     }
                 })
-            }})
+            }})}
             this.setState({lineupsList:viewableArrays.reverse()})
         })
     }
@@ -37,7 +37,7 @@ class HomePage extends React.Component {
         return(
             <div id="home-page">
                 <PostAuthNavBar avatar={this.props.user.avatar}/>
-                <h1>Recent Lineups</h1> 
+                <h3>Recent Lineups</h3> 
                 <LineupContainer resetLineups={this.resetLineups} user={this.props.user} lineupsList={this.state.lineupsList}/>
             </div>
         )} else{

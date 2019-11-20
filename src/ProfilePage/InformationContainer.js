@@ -5,7 +5,8 @@ const ProfileInformation = (props) => {
             <div>
                 <li>Name: {props.user.username}</li>
                 <li>About {props.user.bio}</li>
-                <li>Favorite Team: {props.user.team}</li>
+                <li>Favorite Team: {props.user.team.club_name}</li>
+                {/* <li>Favorite Team: {props.user.team.club_name}</li> */}
             </div>
         )
     }

@@ -2,8 +2,6 @@ import React from 'react'
 import LoginForm from '../forms_buttons/LoginForm'
 import SignupPathButton from '../forms_buttons/SignupPathButton'
 import Logo from '../containers/Logo'
-import PreAuthNavBar from '../navBars/PreAuthNavBar'
-import {Route} from 'react-router-dom'
 import '../styles/LoginPage.css'
 
 class LoginPage extends React.Component {
