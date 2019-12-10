@@ -6,7 +6,7 @@ Users are also able to follow other users or be followed by users (think of Twit
 
 ### Developing locally
 
-This project uses Ruby on Rails to start the databases and JavaScrript with React to render on-screen changes.  To start the frontend, I would suggest first kicking up the databases.  You can find the backend at https://github.com/John-Odom/Poke-Teams-Backend.  Read that ReadMe to kick up the APIs. 
+This project uses Ruby on Rails to start the databases and JavaScrript with React to render on-screen changes.  To start the frontend, I would suggest first kicking up the databases.  You can find the backend at https://github.com/John-Odom/Footy-Lineups-backend.  Read that ReadMe to kick up the APIs. 
 
 Once you have the databases running, you will need to cd back into the frontend directory.  Then:
 
